@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b476659527.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    
+
+    <title>Document</title>
+</head>
+<body onload="affichermoto()">
+    <header> 
+        <div class="logo">
+            
+            <ul class="firstul">
+                <li><img src="/lg.png" alt="" height="25%" width="25%"></li>
+                <li >meilleur service location dans le monde</li>
+            </ul>
+        </div>
+            <nav>
+            
+                
+                    
+                    <label for="check" class="checkbtn">
+                      <i class="fa fa-bars"></i>
+                      
+                    </label>
+                    <input type="checkbox" id="check">
+                    <ul class="secondul">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sing">inscription</a></li>
+                    <li><a href="/login">login</a></li>
+                    <li><a class="active" href="/res">reservation</a></li>
+                </ul>
+            
+            </nav>
+         
+       
+
+    </header><br><br>
+    
+    <div id="mai">
+        <div class="con1">
+        <div class="con-here">
+            <!-- <img id="here" class="here"> -->
+            <% for (var i = 0; i < js.length; i++){%>
+              <% if(js[i].id==idm){%>
+            <img src="/images/<%=js[i].image%>" alt="">
+            <% }%>
+           <% }%>
+
+
+        </div>
+         
+        
+ 
+
+            <div class="form" >
+                
+                <form action="/res2" method="POST" class="forme1">
+                    <input type="hidden" id="hideduree" value="" name="dure">
+                    <input type="hidden" id="" value="<%=idm%>" name="vin">
+                    <% for (let i = 0; i < clients.length; i++) {%>
+                        <% if(clients[i].nom==name){%>
+                            
+                            <input type="hidden" id="" value="<%=clients[i].id  %>" name="idclien">
+            
+                            <% }%>
+                       <% }%> 
+                    
+                    <input type="text" id="name" placeholder="enter voter nom" onkeyup="validename()" name="nom">
+                    <div id="erreur1"></div>
+                    <input type="text" id="email" placeholder="enter voter email" onkeyup="validemail()" name="email">
+                    <div id="erreur2"></div>
+                    <!-- <input type="password" id="pass1" placeholder="enter voter mot de passe" onkeyup="validpass()">
+                    <div id="erreur3"></div>
+                    <input type="password" id="pass2" placeholder="Confirmation mot de passe" onkeyup="revalidpass()">
+                    <div id="erour"></div> -->
+                    <input type="text" id="mobile" placeholder="entre votre numero" onkeyup="validenum()" maxlength="10" name="tele">
+                    <div id="erreur4"></div>
+
+
+                    <label for="username">Votre année de naissance</label>
+                    <input type="date" max="2001-12-31" placeholder="écrire votre année de naissance" name="naissance" id="naissance">
+                
+                <div class="input-inscription">
+                    <label for="username">Période de location</label>
+                    <label for="periode1" id="periode-label">DATE DE départ</p></label>
+                    <input type="date" placeholder="écrire nombre des jours de location" name="periode1" id="date1" min="2020-02-17">
+                    <label for="periode2" id="periode-label">DATE DE retour</label>
+                    <input type="date" placeholder="écrire nombre des jours de location" name="periode2" id="date2" onchange="verification()">
+                    <input type="number" name="nombreDePersone" max="2">
+                  <!-- class="input-inscription"  -->
+                    <!-- <label for="username">Nombre des personnes</label> -->
+                    <!-- <select id="per-select"> -->
+                        <!-- <option value="1">1</option> -->
+                        <!-- <option value="2">2</option> -->
+                        
+                    <!-- </select> --> -->
+                    <input type="submit" value="submit" onclick="validationre2()" id="sub">
+                </form>
+                </div></div>
+             </div>
+        </div>
+        
+        <div class="con2">
+            <div>
+                <img src="/images/images/im1.jpg" width="100.3%">
+            </div>
+            <div>
+                <img src="/images/images/im2.jpg">
+            </div>
+            <div>
+                <img src="/images/images/im3.jpg">
+            </div>
+        </div>
+</div>
+<!-- start 2em partie  -->
+<div class="popup" id="popup-id">
+    <h1>des informations sur votre réservation merci pour votre confiance</h1>
+   
+<img  class="here" > 
+    <div></div>
+    <div class="info" >
+        <h1>votre nom est :<p id="popup-name"></p></h1>
+        <h1>votre age est :<p id="popup-age"></p> ans</h1>
+        <h1>la periode de location est :<p id="popup-periode"></p> jour(s)</h1>
+        <h1>nombre des personnes est :<p id="popup-personne"></p> personne(s)</h1>
+        <button id="btncon">Confirmation</button>
+            
+        
+        
+    </div>
+    
+</div>
+<div class="confir">
+    <img src="mt2.gif" alt="">
+</div>
+<!--  -->
+<!-- end 2em partie -->
+<!-- start footer -->
+<footer>
+    <div class="row2">
+        <div class="colon2">
+            <ul>
+               <h3>Azbike.ma</h3>
+                 <li><a href="#">Contacter</a></li>
+                 <li><a href="#">Conditions générales de location</a></li>
+                 <li><a href="#">Mentions légales</a></li>
+                 <li><a href="#">FAQ</a></li>
+                 <li><a href="#">Assistance Azbike Maroc</a></li>
+            </ul>
+        </div>
+        <div class="colon2">
+            <ul>
+
+                  <h3>Azbike Maroc</h3>
+                    <li><a href="#">Découvrir le Maroc</a></li>
+                    <li><a href="#">Recrutement</a></li>
+                    <li><a href="#">Qui sommes nous</a></li>
+                    <li><a href="#">Azbike Business</a></li>
+                    <li><a href="#">Nos agences de location</a></li>
+                    <li><a href="#">Nos promos</a></li>
+            </ul>      
+        </div>
+        <div class="colon2">
+            <ul>
+                   <h3>Offres et Produits</h3>
+                    <li><a href="#">Véhicules en location</a></li>
+                    <li><a href="#">Véhicules d'Occasion</a></li>
+            </ul>        
+        </div>
+        <div class="colon2">
+            <ul>
+                    <h3>Nos partenaires</h3>
+                    <li><a href="#">MIFA</a></li>
+                    <li><a href="#">KAWASAKI</a></li>
+                    <li><a href="#">HONDA</a></li>
+            </ul>        
+        </div>
+        <div class="soc">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-linkedin-in"></i>
+    </div>
+    </div>
+</footer>
+<!-- end footer -->
+<script src="/jquery-3.4.1.min.js"></script>
+<script src=/java.js></script>
+<script>
+    
+</script>
+</body>
+</html>

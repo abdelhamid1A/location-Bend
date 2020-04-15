@@ -1,0 +1,26 @@
+[
+     {
+          "id": 1,
+          "image": "b.jpg",
+          "name": "gsxr 1000",
+          "price": "30"
+     },
+     {
+          "id": 2,
+          "image": "a.jpg",
+          "name": "varadero",
+          "price": "25"
+     },
+     {
+          "id": 3,
+          "image": "e.jpg",
+          "name": "h2",
+          "price": "1000"
+     },
+     {
+          "id": 4,
+          "image": "tmax.jpg",
+          "name": "Tmax DX530",
+          "price": "40"
+     }
+]

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b476659527.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            
+            <ul class="firstul">
+                <li><img src="../public/images/images/lg.png" alt="" height="25%" width="25%"></li>
+                <li >meilleur service location dans le monde</li>
+                <!-- <button class="btn btn-danger"></button> -->
+            </ul>
+        </div>
+            <nav>
+            
+                
+                    
+                    <label for="check" class="checkbtn">
+                      <i class="fa fa-bars"></i>
+                      
+                    </label>
+                    <input type="checkbox" id="check">
+                    <ul class="secondul">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/sing">inscription</a></li>
+                    <li><a href="/login">login</a></li>
+                    <li><a class="active" href="/res">reservation</a></li>
+                </ul>
+            
+            </nav>
+         
+       
+
+    </header>
+    <div style="color: #fff;float: right;margin-right: 165px;margin-bottom: 80px;border: 2px solid #ffd100;padding: 10px;">
+
+        hi :) <%= nom%>
+        
+    </div>
+    
+  <BR></BR>
+
+    </div></div> 
+<!-- affichage  -->
+    <div class="row mb-5 container">
+      
+        <%if (js.length > 0) {%>
+        <%for(i in js) {%>
+              <div class="col-4 col-xs-12" >
+                  <div class="card" style="border:none">
+                  
+                <img src="../public/images/<%= js[i].image%>" class="card-img-top1"  style="width:100% ;height:300px">
+                  
+                  <div class="card-body">
+     <h2 class="card-title align-center" style="color: #000;"><%= js[i].name%></h2>
+     <h3 class="card-text align-center" style="color: #000;"><%= js[i].price%>$</h3>
+         
+         <a href="/res/<%= js[i].id %>/<%= nom %>" class="btn btn-danger"> Delete </a>
+          <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" id="rvn" onclick="get(this)" name="<%= js[i].id %>" > Edit </button>
+          <button class="btn btn-danger" ><a style="text-decoration: none;color: #fff;" href="/res2/<%= nom%>/<%= js[i].id %>">reserver</a></button>
+   </div>
+</div>
+<br><br>
+</div>
+<%}%>
+
+<%}%>
+
+</div>
+</div>
+
+
+<!-- form add -->
+
+
+<div class="modal-body">
+    <form action="/res" method="post">
+<div class="form-group">
+<input type="hidden" id="vv" name="id" value="" >
+<input type="hidden" value="<%= nom%>" name="hide">
+         <label for="exampleInputPassword1" style="color: #fff;">Product image</label>
+         <input class="form-control"  class="form-control is-valid"name="image" required="on">
+     </div>
+
+     <div class="form-group">
+         <label for="exampleInputPassword1" style="color: #fff;">Product Name</label>
+         <input class="form-control" class="form-control is-valid" name="name" id="title" required="on">
+     </div>
+
+     <div class="form-group">
+         <label for="exampleInputPassword1" style="color: #fff;">Price</label>
+         <input class="form-control" class="form-control is-valid" name="price" id="author" required="on">
+     </div>
+
+      <button type="submit" class="btn btn-danger">submit</button>
+</div>
+    </div>
+</form>
+
+
+
+<!-- Edit window  -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h1 class="modal-title">Edit product</h1>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+                           <form action="/up" method="post">
+         <div class="form-group">
+             <input type="hidden" id="ss" name="id" value="" >
+             <input type="hidden" value="<%= nom%>" name="hide">
+                                <label for="exampleInputPassword1">Product image</label>
+                                <input class="form-control"  class="form-control is-valid"name="image" required="on">
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Product Name</label>
+                                <input class="form-control" class="form-control is-valid" name="name" id="title" required="on">
+                            </div>
+                
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Price</label>
+                                <input class="form-control" class="form-control is-valid" name="price" id="author" required="on">
+                            </div>
+                
+                             <button type="submit" class="btn btn-danger">submit</button>
+        </div>
+               </form>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+<!-- </div> -->
+<!-- end 2em partie -->
+<!-- start footer -->
+<footer>
+    <div class="row2">
+        <div class="colon2">
+            <ul>
+               <h3>Azbike.ma</h3>
+                 <li><a href="#">Contacter</a></li>
+                 <li><a href="#">Conditions générales de location</a></li>
+                 <li><a href="#">Mentions légales</a></li>
+                 <li><a href="#">FAQ</a></li>
+                 <li><a href="#">Assistance Azbike Maroc</a></li>
+            </ul>
+        </div>
+        <div class="colon2">
+            <ul>
+                  <h3>Azbike Maroc</h3>
+                    <li><a href="#">Découvrir le Maroc</a></li>
+                    <li><a href="#">Recrutement</a></li>
+                    <li><a href="#">Qui sommes nous</a></li>
+                    <li><a href="#">Azbike Business</a></li>
+                    <li><a href="#">Nos agences de location</a></li>
+                    <li><a href="#">Nos promos</a></li>
+            </ul>      
+        </div>
+        <div class="colon2">
+            <ul>
+                   <h3>Offres et Produits</h3>
+                    <li><a href="#">Véhicules en location</a></li>
+                    <li><a href="#">Véhicules d'Occasion</a></li>
+            </ul>        
+        </div>
+        <div class="colon2">
+            <ul>
+                    <h3>Nos partenaires</h3>
+                    <li><a href="#">MIFA</a></li>
+                    <li><a href="#">KAWASAKI</a></li>
+                    <li><a href="#">HONDA</a></li>
+            </ul>        
+        </div>
+        <div class="soc">
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-youtube"></i>
+            <i class="fab fa-linkedin-in"></i>
+    </div>
+    </div>
+</footer>
+<!-- end footer -->
+
+<script src=../public/javascripts/java.js></script>
+
+
+<script>
+	
+
+
+    var cc = document.getElementById("ss");
+    function get(ev) {
+ let ww = ev.name;
+ console.log(ww);
+    
+     cc.value = ww;
+    
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
